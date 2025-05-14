@@ -7,7 +7,7 @@ using namespace std;
 class Figure {
 public:
 	Figure(COLORREF _colorPen);
-	virtual void show();
+	virtual void show() = 0;
 	virtual void hide() = 0;
 	virtual void moveFigure() = 0;
 	bool isIncideConsole(int x, int y);

@@ -127,11 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ComplexFigure.cpp" />
     <ClCompile Include="Figure.cpp" />
     <ClCompile Include="kursach.cpp" />
     <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ComplexFigure.h" />
     <ClInclude Include="Figure.h" />
     <ClInclude Include="Triangle.h" />
   </ItemGroup>

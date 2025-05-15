@@ -8,14 +8,16 @@ ComplexFigure::ComplexFigure(Triangle* _t1, Triangle* _t2, Triangle* _t3, COLORR
 	colorPen = _colorPen;
 }
 
+bool ComplexFigure::isInsideConsole() {
+	return t1->isInsideConsole() && t2->isInsideConsole() && t3->isInsideConsole();
+}
+
 void ComplexFigure::show() {
 	t1->show();
 	t2->show();
 	t3->show();
 }
-bool ComplexFigure::isInsideConsole() {
-	return t1->isInsideConsole() && t2->isInsideConsole() && t3->isInsideConsole();
-}
+
 
 void ComplexFigure::hide() {
 	t1->hide();
@@ -25,6 +27,6 @@ void ComplexFigure::hide() {
 
 void ComplexFigure::moveFigure(int x1, int y1) {
 	t1->moveFigure(x1, y1);
-	/*t2->moveFigure(x1 - a / 2, y1 + h);
-	t3->moveFigure(x1 + a / 2, y1 + h);*/
+	t2->moveFigure(x1 - a / 2, y1 + h);
+	t3->moveFigure(x1 + a / 2, y1 + h);
 }

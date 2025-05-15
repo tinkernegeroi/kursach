@@ -2,15 +2,21 @@
 #include <windowsx.h>
 #include "Triangle.h"
 
+void Triangle::recalcPoints() {
+	topLeft = x - (a / 2);
+	topRight = x + (a / 2);
+}
+
+
 bool Triangle::isInsideConsole() {
-	return ((x - a / 2) < rt.left) || ((x + a / 2) > rt.right) || (y < rt.top);
+	return (x - a / 2 >= rt.left) && (x + a / 2 <= rt.right) && (y >= rt.top) && (y + h <= rt.bottom);
 }
 
 void Triangle::show() {
 	HPEN pen = CreatePen(PS_SOLID, 2, colorPen);
 	SelectObject(hdc, pen);
+	recalcPoints();
 	MoveToEx(hdc, x, y, NULL);
-	//cout << x << " " << y << " " << h << " " << topLeft << " " << topRight << endl;
 	LineTo(hdc, topLeft, y + h);
 	LineTo(hdc, topRight, y + h);
 	LineTo(hdc, x, y);
@@ -18,9 +24,6 @@ void Triangle::show() {
 
 }
 
-//void Triangle :: recalcPoints() {
-//	
-//}
 
 void Triangle::moveFigure(int a, int b) {
 	hide();

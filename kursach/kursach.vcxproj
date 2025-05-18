@@ -129,12 +129,14 @@
   <ItemGroup>
     <ClCompile Include="ComplexFigure.cpp" />
     <ClCompile Include="Figure.cpp" />
+    <ClCompile Include="FiguresStack.cpp" />
     <ClCompile Include="kursach.cpp" />
     <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ComplexFigure.h" />
     <ClInclude Include="Figure.h" />
+    <ClInclude Include="FiguresStack.h" />
     <ClInclude Include="Triangle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

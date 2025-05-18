@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include <windows.h>
+#include <string>
 #include <windowsx.h>
 #include "Figure.h"
 using namespace std;

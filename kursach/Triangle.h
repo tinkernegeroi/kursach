@@ -14,7 +14,12 @@ public:
 	int getH() { return h; };
 	int getA() { return a; };
 	void recalcPoints();
-
-
-
+	class FigureException : public exception {
+	public:
+		enum ErrorType { NEGATIVEINPUT, OUTOFBOUNDS };
+		FigureException(ErrorType _type, int _x, int _y, int _a);
+		const char* what() const noexcept override;
+	private:
+		string message;
+	};
 };

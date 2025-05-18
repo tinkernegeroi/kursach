@@ -1,6 +1,8 @@
 #include <windows.h>
 #include <windowsx.h>
+#include <string>
 #include "Triangle.h"
+
 
 void Triangle::recalcPoints() {
 	topLeft = x - (a / 2);
@@ -13,19 +15,28 @@ bool Triangle::isInsideConsole() {
 }
 
 void Triangle::show() {
-	HPEN pen = CreatePen(PS_SOLID, 2, colorPen);
-	SelectObject(hdc, pen);
-	recalcPoints();
-	MoveToEx(hdc, x, y, NULL);
-	LineTo(hdc, topLeft, y + h);
-	LineTo(hdc, topRight, y + h);
-	LineTo(hdc, x, y);
-	DeleteObject(pen);
+	if (isInsideConsole()) {
+		HPEN pen = CreatePen(PS_SOLID, 2, colorPen);
+		SelectObject(hdc, pen);
+		recalcPoints();
+		MoveToEx(hdc, x, y, NULL);
+		LineTo(hdc, topLeft, y + h);
+		LineTo(hdc, topRight, y + h);
+		LineTo(hdc, x, y);
+		DeleteObject(pen);
+	}
+	else {
+		throw FigureException(FigureException::OUTOFBOUNDS, x, y, a);
+	}
+	
 
 }
 
 
 void Triangle::moveFigure(int a, int b) {
+	if (a < 0 || b < 0) {
+		throw FigureException(FigureException::NEGATIVEINPUT, x, y, this->a);
+	}
 	hide();
 	x = a;
 	y = b;
@@ -41,4 +52,16 @@ void Triangle::hide() {
 	LineTo(hdc, topRight, y + h);
 	LineTo(hdc, x, y);
 	DeleteObject(pen);
+}
+
+Triangle::FigureException::FigureException(ErrorType type, int x, int y, int a) {
+	if (type == NEGATIVEINPUT) {
+		message = "Неккоректные данные. Вершина: " + to_string(x) + ", " + to_string(y) + ". Длина стороны: " + to_string(a);
+	}
+	else if (type == OUTOFBOUNDS) {
+		message = "Выход за границы. Вершина: " + to_string(x) + ", " + to_string(y) + ". Длина стороны: " + to_string(a);
+	}
+}
+const char* Triangle::FigureException::what() const noexcept {
+	return message.c_str();
 }

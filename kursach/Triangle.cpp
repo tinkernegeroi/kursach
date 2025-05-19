@@ -28,14 +28,12 @@ void Triangle::show() {
 	else {
 		throw FigureException(FigureException::OUTOFBOUNDS, x, y, a);
 	}
-	
-
 }
 
 
 void Triangle::moveFigure(int a, int b) {
 	if (a < 0 || b < 0) {
-		throw FigureException(FigureException::NEGATIVEINPUT, x, y, this->a);
+		throw FigureException(FigureException::NEGATIVEINPUT, a, b, this->a);
 	}
 	hide();
 	x = a;
@@ -47,7 +45,6 @@ void Triangle::hide() {
 	HPEN pen = CreatePen(PS_SOLID, 2, RGB(240,240,240));
 	SelectObject(hdc, pen);
 	MoveToEx(hdc, x, y, NULL);
-	//recalcPoints();
 	LineTo(hdc, topLeft, y + h);
 	LineTo(hdc, topRight, y + h);
 	LineTo(hdc, x, y);

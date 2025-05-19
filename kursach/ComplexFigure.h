@@ -12,7 +12,5 @@ private:
 	Triangle* t1;
 	Triangle* t2;
 	Triangle* t3;
-	
-
 };
 

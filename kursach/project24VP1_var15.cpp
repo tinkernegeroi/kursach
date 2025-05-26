@@ -1,5 +1,4 @@
 ﻿#include <windows.h>
-#include <windowsx.h>
 #include <iostream>
 #include "Figure.h"
 #include "Triangle.h"
@@ -14,7 +13,7 @@ int main()
 	try {
 		SetConsoleTitle((LPCWSTR)L"24VP1_15");
 		COLORREF colorPen = RGB(0, 0, 0);
-		Triangle* triangle1 = new Triangle(300, -100, 100, colorPen);
+		Triangle* triangle1 = new Triangle(300, 100, 100, colorPen);
 		Triangle* triangle2 = new Triangle(static_cast<int>(triangle1->getX()) - static_cast<int>(triangle1->getA() / 2), static_cast<int>(triangle1->getY()) + static_cast<int>(triangle1->getH()), static_cast<int>(triangle1->getA()), colorPen);
 		Triangle* triangle3 = new Triangle(static_cast<int>(triangle1->getX()) + static_cast<int>(triangle1->getA() / 2), static_cast<int>(triangle1->getY()) + static_cast<int>(triangle1->getH()), static_cast<int>(triangle1->getA()), colorPen);
 		ComplexFigure* comp = new ComplexFigure(triangle1, triangle2, triangle3, colorPen);

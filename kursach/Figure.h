@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
 #include <windows.h>
-#include <windowsx.h>
 using namespace std;
 
 class Figure {

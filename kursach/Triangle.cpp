@@ -1,5 +1,4 @@
 #include <windows.h>
-#include <windowsx.h>
 #include <string>
 #include "Triangle.h"
 

@@ -1,4 +1,4 @@
-#include <Windows.h>
+#include <windows.h>
 #include "FiguresStack.h"
 
 void FiguresStack::add(Figure* f) {
